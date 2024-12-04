@@ -8,14 +8,13 @@
 #define DELIMITERS " \n\t\r\a"
 char *read_line(void)
 {
-
-    ssize_t bufsize = 0; // have getline allocate a buffer for us
+    ssize_t bufsize = 0; 
     char *line = NULL;
     
     if (getline(&line, &bufsize, stdin) == -1){
         if (feof(stdin)) {
         
-        exit(EXIT_SUCCESS);  // We recieved an EOF
+        exit(EXIT_SUCCESS);
         } else  {
         perror("readline");
         exit(EXIT_FAILURE);
@@ -29,9 +28,10 @@ int process_fork_and_execute_deneme(char **args){
     pid = fork();
     if(pid == 0){
         //cocuk proses
-        execvp(args[0],args);
-        //printf("\n"); // Add newline at the end
-        fflush(stdout); // Ensure the output is immediately displaye
+        if(execvp(args[0],args) == -1){
+            perror("execute hatasi");
+        }
+        fflush(stdout);
         exit(EXIT_FAILURE);
     }
     else if (pid < 0) {
