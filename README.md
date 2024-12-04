@@ -1,1 +1,1 @@
-operating systems project for univery course me and my friends have taken
+operating systems project for a univery course me and my friends have taken
