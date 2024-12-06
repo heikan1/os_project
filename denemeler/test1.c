@@ -85,6 +85,9 @@ int main_loop(){
         printf("> ");
         fflush(stdout);
         line = read_line();
+        //; parse
+        //| parse
+        //usttekilerin ayri ayri executelari falan gerekiyor
         args = space_parse(line);
         status = process_fork_and_execute_deneme(args);
         free(line);
